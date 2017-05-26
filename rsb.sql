@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 19, 2016 at 07:30 PM
+-- Generation Time: Jun 04, 2017 at 05:38 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -34,6 +34,32 @@ CREATE TABLE `details` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `details`
+--
+
+INSERT INTO `details` (`id`, `mapping_subsection_id`, `content`, `created_at`, `updated_at`) VALUES
+(1, 2, 'dagasatvik10@gmail.com', '2016-10-20 03:44:30', '2016-10-20 03:44:30'),
+(2, 1, 'Satvik', '2016-10-20 03:45:13', '2016-10-20 03:45:21'),
+(3, 3, '', '2016-10-20 03:45:21', '2016-10-20 03:45:21'),
+(4, 4, '', '2016-10-20 03:45:21', '2016-10-20 03:45:21'),
+(5, 5, '', '2016-10-20 03:45:21', '2016-10-20 03:45:21'),
+(6, 6, '', '2016-10-20 03:45:21', '2016-10-20 03:45:21'),
+(7, 7, '', '2016-10-20 03:45:21', '2016-10-20 03:45:21'),
+(10, 10, '', '2016-10-20 03:45:21', '2016-10-20 03:45:21'),
+(11, 11, '', '2016-10-20 03:45:21', '2016-10-20 03:45:21'),
+(12, 12, '', '2016-10-20 03:45:21', '2016-10-20 03:45:21'),
+(13, 13, '', '2016-10-20 03:45:21', '2016-10-20 03:45:21'),
+(14, 14, '', '2016-10-20 03:45:21', '2016-10-20 03:45:21'),
+(15, 15, '', '2016-10-20 03:45:21', '2016-10-20 03:45:21'),
+(16, 16, '', '2016-10-20 03:45:21', '2016-10-20 03:45:21'),
+(17, 17, '', '2016-10-20 03:45:21', '2016-10-20 03:45:21'),
+(18, 18, '', '2016-10-20 03:45:21', '2016-10-20 03:45:21'),
+(19, 19, '', '2016-10-20 03:45:21', '2016-10-20 03:45:21'),
+(20, 20, '', '2016-10-20 03:45:21', '2016-10-20 03:45:21'),
+(106, 106, 'book_lelo', '2017-05-26 12:24:20', '2017-05-26 12:24:20'),
+(107, 107, '', '2017-05-26 12:24:20', '2017-05-26 12:24:20');
+
 -- --------------------------------------------------------
 
 --
@@ -48,6 +74,19 @@ CREATE TABLE `mapping_sections` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `mapping_sections`
+--
+
+INSERT INTO `mapping_sections` (`id`, `resume_id`, `section_id`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, NULL, NULL),
+(2, 1, 2, NULL, NULL),
+(4, 1, 4, NULL, NULL),
+(5, 1, 5, NULL, NULL),
+(6, 1, 6, NULL, NULL),
+(7, 1, 7, NULL, NULL),
+(49, 1, 3, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -61,6 +100,32 @@ CREATE TABLE `mapping_subsections` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `mapping_subsections`
+--
+
+INSERT INTO `mapping_subsections` (`id`, `mapping_section_id`, `subsection_id`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, NULL, NULL),
+(2, 1, 2, NULL, NULL),
+(3, 1, 3, NULL, NULL),
+(4, 2, 4, NULL, NULL),
+(5, 2, 5, NULL, NULL),
+(6, 2, 6, NULL, NULL),
+(7, 2, 7, NULL, NULL),
+(10, 4, 10, NULL, NULL),
+(11, 5, 11, NULL, NULL),
+(12, 6, 12, NULL, NULL),
+(13, 6, 13, NULL, NULL),
+(14, 6, 14, NULL, NULL),
+(15, 6, 15, NULL, NULL),
+(16, 7, 16, NULL, NULL),
+(17, 7, 17, NULL, NULL),
+(18, 7, 18, NULL, NULL),
+(19, 7, 19, NULL, NULL),
+(20, 7, 20, NULL, NULL),
+(106, 49, 8, NULL, NULL),
+(107, 49, 9, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -100,6 +165,13 @@ CREATE TABLE `password_resets` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `password_resets`
+--
+
+INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
+('satvikdaga10@gmail.com', 'bd478e0411e7a18320280464e71ce3ad30d7853c7a41d8326aafa9439609aa27', '2017-05-26 04:25:43');
+
 -- --------------------------------------------------------
 
 --
@@ -113,6 +185,13 @@ CREATE TABLE `resumes` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `resumes`
+--
+
+INSERT INTO `resumes` (`id`, `user_id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 3, 'r1', '2016-10-20 03:44:30', '2016-10-20 03:44:30');
 
 -- --------------------------------------------------------
 
@@ -191,7 +270,7 @@ CREATE TABLE `users` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `avatar` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'img/default_avatar.png',
+  `avatar` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'img/default_avatar.png',
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -202,9 +281,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `avatar`, `remember_token`, `created_at`, `updated_at`) VALUES
-(3, 'Satvik Daga', 'dagasatvik10@gmail.com', '$2y$10$b0/kZYi8IOdCMmLJhvSUZ.wtkOgnuQcqfQEmTxmFZ4gVlGx1MQfBe', '/img/default_avatar.png', 'Gn1tM1Uz42UfZXSvPDHR8cTEZUo4c9zJgvwf1sauteQts2jHW9h7Q2E8JB33', '2016-09-22 23:31:47', '2016-10-19 10:04:47'),
-(6, 'Satvik Daga', 'satvikdaga10@gmail.com', '$2y$10$Vp/G.jnJHyIdz5fvQsQSEO18iuvX5nqH/ScnCBdX9PKdRS7kv0plK', 'https://lh4.googleusercontent.com/-1BNnJmcMU0Q/AAAAAAAAAAI/AAAAAAAAAAs/2dGUdgDH_Ao/photo.jpg?sz19=50', 'GgVuyrnLuj3qGRjoymuSl3Kna6sNEyeshD8KSFsIcEbZdbdFXXFtcTf7Datn', '2016-10-19 11:18:46', '2016-10-19 11:19:09'),
-(7, 'Satvik Daga', 'dagasatvik@gmail.com', '$2y$10$w45rKgMimC/O.PNJhnUcDuij0xljR09lQULJbqwiH/Ho5dYibMPK.', 'https://graph.facebook.com/v2.6/1059719497413438/picture?width=1920', 'UQ7jgY8zxUtVWCgtIm9JrEWMT8gzWXjW3maYpIoXz1dEiMfdxHRvmz3NSkrF', '2016-10-19 11:19:15', '2016-10-19 11:19:15');
+(3, 'Satvik Daga', 'dagasatvik10@gmail.com', '$2y$10$.DPJXh1sMGITBEB/lDY3S.vsBrzDBIRvjzsUXDbdmibcs9rfn/eLq', 'https://lh5.googleusercontent.com/-sr9U7AWIQsw/AAAAAAAAAAI/AAAAAAAAJUk/3lqHRJkaH4E/photo.jpg?sz=1950', 'xIpSnP65KHeq0jUl3i3sCbTmQ8sVITgk1RVjqAzTu2rW4sEL8mHiUfl6uWpy', '2016-09-22 23:31:47', '2017-06-03 22:08:10'),
+(6, 'Satvik Daga', 'satvikdaga10@gmail.com', '$2y$10$Vp/G.jnJHyIdz5fvQsQSEO18iuvX5nqH/ScnCBdX9PKdRS7kv0plK', 'https://graph.facebook.com/v2.8/108480729741993/picture?width=1920', '5IzkY22JCE7boyaN6yRCDQXsJM96Iw25BWsO8RjqqHYNOg6GmrwyKAwQ3jlX', '2016-10-19 11:18:46', '2017-05-26 10:46:30'),
+(15, 'Satvik Daga', 'dagasatvik@gmail.com', '$2y$10$f/bbTJDRa/JDxpJqvWO1GeI9FJE1DDzehwemm4q6.qxX3a6Aa8Kh2', 'https://graph.facebook.com/v2.8/1490131714372212/picture?width=1920', 'E56lru6nEMmZUXHGwZsakZnwaE0FU197BRTtDF2nh2czuiI33AlPjg9pmUeR', '2017-05-26 03:53:44', '2017-05-26 10:55:36');
 
 --
 -- Indexes for dumped tables
@@ -275,37 +354,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `details`
 --
 ALTER TABLE `details`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 --
 -- AUTO_INCREMENT for table `mapping_sections`
 --
 ALTER TABLE `mapping_sections`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 --
 -- AUTO_INCREMENT for table `mapping_subsections`
 --
 ALTER TABLE `mapping_subsections`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=229;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 --
 -- AUTO_INCREMENT for table `resumes`
 --
 ALTER TABLE `resumes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `sections`
 --
 ALTER TABLE `sections`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `subsections`
 --
 ALTER TABLE `subsections`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- Constraints for dumped tables
 --

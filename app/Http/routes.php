@@ -8,6 +8,7 @@ Route::group(['middleware' => 'web'], function ()
     Route::get('/login',function() {
       return redirect()->route('home');
     });
+
     Route::get('/register',function() {
       return redirect()->route('home');
     });
@@ -33,10 +34,10 @@ Route::group(['middleware' => 'web'], function ()
     // Social Routes for github, fb and google
     Route::get('auth/github','ResumeController@redirectGithub');
     Route::get('auth/github/callback','ResumeController@githubCallback');
-    Route::get('auth/fb','Auth\AuthController@redirectFb');
-    Route::get('auth/fb/callback','Auth\AuthController@FbCallback');
-    // Route::get('auth/ln','UserController@redirectLn');
-    // Route::get('auth/ln/callback','UserController@LnCallback');
+    Route::get('auth/fb','Auth\AuthController@redirectFB');
+    Route::get('auth/fb/callback','Auth\AuthController@FBCallback');
+    Route::get('auth/ln','Auth\AuthController@redirectLn');
+    Route::get('auth/ln/callback','Auth\AuthController@LnCallback');
     Route::get('auth/google','Auth\AuthController@redirectGoogle');
     Route::get('auth/google/callback','Auth\AuthController@googleCallback');
 

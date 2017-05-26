@@ -148,7 +148,7 @@ return array(
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-		Collective\Html\HtmlServiceProvider::class,
+		    Collective\Html\HtmlServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Nitmedia\Wkhtml2pdf\L5Wkhtml2pdfServiceProvider::class,
 

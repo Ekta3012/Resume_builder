@@ -34,6 +34,7 @@ class UserController extends Controller
         return view('dashboard',compact(['user','resumes']));
     }
 
+
     // public function redirectLn()
     // {
     //     return Socialite::driver('linkedin')->redirect();

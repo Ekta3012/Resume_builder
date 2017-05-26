@@ -76,16 +76,34 @@ class AuthController extends Controller
         ]);
     }
 
-    protected function redirectFb()
+    protected function redirectLn()
     {
+        // dd('hgjhg');
+        return Socialite::driver('linkedin')->redirect();
+    }
 
+    protected function LnCallback()
+    {
+        $user = Socialite::driver('linkedin')->user();
+        // dd($user);
+
+        $authUser = $this->findOrCreateUser($user);
+        // dd($authUser);
+        $authUser->avatar = $user->avatar_original;
+        $authUser->save();
+        Auth::login($authUser, true);
+        //return Redirect::to('/dashboard');
+        return view('closeWindow');
+    }
+
+    protected function redirectFB()
+    {
         return Socialite::driver('facebook')->redirect();
     }
 
-    protected function FbCallback()
+    protected function FBCallback()
     {
         $user = Socialite::driver('facebook')->user();
-        //dd($user);
 
         $authUser = $this->findOrCreateUser($user);
         $authUser->avatar = $user->avatar_original;
@@ -125,8 +143,8 @@ class AuthController extends Controller
         return User::create([
             'name' => $user->name,
             'email' => $user->email,
-            'password' => bcrypt($user->token),
-            'avatar' => $user->avatar
+            'avatar' => $user->avatar,
+            'password' => bcrypt($user->token)
         ]);
     }
 

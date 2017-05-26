@@ -34,33 +34,34 @@ return [
         'key'    => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+
     // FB client id and secret for login
     'facebook' => [
-        'client_id' => '834283783368088',
-        'client_secret' => '20bfce91c29052799b20af2d6714cd57',
-        'redirect' => 'http://localhost:8000/auth/fb/callback',
+        'client_id' => env('FB_CLIENT_ID'),
+        'client_secret' => env('FB_CLIENT_SECRET'),
+        'redirect' => env('FB_CB'),
     ],
 
     // Github client id and secret for projects
     'github' => [
-        'client_id' => '2a70ddf1ac1915832b3b',
-        'client_secret' => '3be38076d1239bbbf078cf5f0a6ae777eb62dce2',
-        'redirect' => 'http://localhost:8000/auth/github/callback',
+        'client_id' => env('GIT_CLIENT_ID'),
+        'client_secret' => env('GIT_CLIENT_SECRET'),
+        'redirect' => env('GIT_CB'),
 
     ],
 
     // Linkedin client id and secret for data
     'linkedin' => [
-        'client_id' => '75hnx9nod4di70',
-        'client_secret' => '85vqK3p03atdPdXi',
-        'redirect' => 'http://localhost:8000/auth/ln/callback',
+        'client_id' => env('LN_CLIENT_ID'),
+        'client_secret' => env('LN_CLIENT_SECRET'),
+        'redirect' => env('LN_CB'),
 
     ],
 
     'google' => [
-      'client_id' => '15696576144-lvgpo3hsp9gikjrgrbq33s98c75frfuo.apps.googleusercontent.com',
-      'client_secret' => 'LYpwdB_rpqOvKMR5qA7gRsdB',
-      'redirect' => 'http://localhost:8000/auth/google/callback',
+      'client_id' => env('GOOGLE_CLIENT_ID'),
+      'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+      'redirect' => env('GOOGLE_CB'),
     ]
 
 ];

@@ -13,5 +13,6 @@ class HomeController extends Controller
         $resumes = Resume::all();
         return view('home',compact('resumes'));
     }
-    
+
+
 }
