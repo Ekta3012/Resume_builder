@@ -33,10 +33,10 @@
 					</div>
 				@else
 					<div>
-						<span>
+						<span style="margin-right: 10px; background: rgba(255, 255, 255, 0.8);  padding: 5px; ">
 							<a href="{{ route('user.dashboard') }}">{{ Auth::user()->name }}</a>
 						</span>
-						<span>
+						<span style="background: rgba(255, 255, 255, 0.8); padding: 5px;">
 							<a href={{ url('/logout') }}>Logout</a>
 						</span>
 					</div>
@@ -257,32 +257,32 @@
 			</div>
 			<div class="container">
 				<div class="row">
-					<h1 style="text-align: center; padding-bottom: 30px; padding-top:30px;">HOW IT <span style="color: #15b8db">WORKS</span></h1>
+					<h2 style="text-align: center; padding-bottom: 30px; padding-top:30px;">HOW IT <span style="color: #15b8db">WORKS</span></h2>
 				</div>
 				<div class="row">
 					<div class="col-lg-3" style="text-align:center;">
 						<h3 style="font-weight: bold"><span style="">0</span>1</h3>
-						<h1 style="margin-top: -15px;">Template</h1>
-						<img src="img/template.png" width="150px" height="150px" style="margin:0 auto; display:block; padding-bottom:20px;" class="img-responsive">
+						<h3 style="margin-top: -15px;">Template</h3>
+						<img src="img/template.png" width="100px" height="100px" style="margin:0 auto; display:block; padding-bottom:20px;" class="img-responsive">
 						<p style="text-align:center; padding-top:20px;">Choose a template, of your choice.Make your resume of your choice.</p>
 
 					</div>
 					<div class="col-lg-1 arrow">
-						<img src="img/right_arrow.png">
+						<img src="img/right_arrow.png" style="width: 75px; height: 65px; margin-top: 63%;">
 					</div>
 					<div class="col-lg-3 " style="text-align:center;">
 						<h3 style="font-weight: bold;"><span style="">0</span>2</h3>
-						<h1 style="margin-top: -15px;">Download</h1>
-						<img src="img/download.ico" width="150px" height="150px" style="margin:0 auto; display:block; padding-bottom:20px;" class="img-responsive">
+						<h3 style="margin-top: -15px;">Download</h3>
+						<img src="img/download.ico" width="100px" height="100px" style="margin:0 auto; display:block; padding-bottom:20px;" class="img-responsive">
 						<p style="text-align:center; padding-top:20px;">Download Your resume in pdf or word document format.</p>
 					</div>
 					<div class="col-lg-1 arrow">
-						<img src="img/right_arrow.png">
+						<img src="img/right_arrow.png" style="width: 75px; height: 65px; margin-top: 63%;">
 					</div>
 					<div class="col-lg-4" style="text-align:center;">
 						<h3 style="font-weight: bold"><span style="">0</span>3</h3>
-						<h1 style="margin-top: -15px;">Save Resume</h1>
-						<img src="img/save.png" width="150px" height="150px" style="margin:0 auto; display:block; padding-bottom:20px;" class="img-responsive">
+						<h3 style="margin-top: -15px;">Save Resume</h3>
+						<img src="img/save.png" width="100px" height="100px" style="margin:0 auto; display:block; padding-bottom:20px;" class="img-responsive">
 						<p style="text-align:center; padding-top:20px;">Save your resume for future reference. You can edit/ view your resume.</p>
 					</div>
 				</div>
@@ -291,7 +291,7 @@
 			<div class="container-fluid " id="features">
 				<div class="container">
 					<div class="row">
-						<h1 style="text-align: center; margin-bottom: 2%;">Features</h1>
+						<h2 style="text-align: center; margin-bottom: 2%;">Features</h2>
 						<div class="col-sm-3" style="text-align: center;"><span class="feature"><i class="fa fa-sign-in social_icons"></i></span><br><br>Easy to create with social login</div>
 						<div class="col-sm-3" style="text-align: center;"><span class="feature"><i class="fa fa-file-text social_icons"></i></span><br><br>Provides different design templates</div>
 						<div class="col-sm-3" style="text-align: center;"><span class="feature"><i class="fa fa-cloud-download social_icons"></i></span><br><br>You can Save and download your resume for future.</div>
@@ -308,7 +308,7 @@
 						<p style="text-align:center;">Powered By - Software Incubator.</p>
 					</div>
 					<div class="col-md-4">
-						<a  style="text-decoration: none;" href={{ url('http://silive.in/') }}><span class="pull-right"><img src="{{ asset('img/si_logo.png') }}" >Visit Us</span></a>
+						<a  style="text-decoration: none; color:#fff;" href={{ url('http://silive.in/') }}><span class="pull-right"><img src="{{ asset('img/si_logo.png') }}" >Visit Us</span></a>
 					</div>
 				</div>
 			</div>
