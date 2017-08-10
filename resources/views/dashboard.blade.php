@@ -57,7 +57,6 @@
 									<div class="input-field">
 										{!! Form::label('name','Resume Name') !!}
 										<input type="text" name="name" placeholder="Resume name" class="validate form-control">
-
 									</div>
 							      <div class="modal-footer" style="border-top: none;">
 							      	<button type="submit" class="btn createbuttonmodal">Create</button>

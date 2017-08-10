@@ -1,159 +1,156 @@
-<div class="container ">
+    <div class="wrapper">        
+        <div class="main-wrapper col-xs-9">
+                  @if($default_section[5] != null)
+                    <section class="section summary-section">
+                        <h2 class="section-title"><i class="fa fa-user"></i>Objective</h2>
+                        <div class="summary">
+                            <p>{{ $default_section[5][0]['Objective'][0] }}</p>
+                        </div><!--//summary-->
+                    </section><!--//section-->
+                @endif
+               @if($default_section[7] != null)
+                    <section class="section experiences-section">
+                        <h2 class="section-title"><i class="fa fa-briefcase"></i>Experiences</h2>
+                        @foreach($default_section[7] as $section)
+                            @if($section != null)
+                                <div class="item">
+                                    <div class="meta">
+                                        <div class="upper-row">
+                                            @if(!empty($section['Job Title'][0]))
+                                                <h3 class="job-title">{{ $section['Job Title'][0] }}</h3>
+                                            @endif                                
+                                            @if(!empty($section['Start Date'][0]) or $section['End Date'][0])
+                                                <div class="time">{{ $section['Start Date'][0] }} &#45;{{ $section['End Date'][0] }}</div>
+                                            @endif                               
+                                        </div><!--//upper-row-->
+                                        @if(!empty($section['Company'][0]))
+                                           <div class="company">{{ $section['Company'][0] }}</div>
+                                        @endif                            
+                                    </div><!--//meta-->
+                                    @if(!empty($section))
+                                        <div class="details">
+                                            <p>{{ $section['Other Information'][0] }}</p>
+                                        </div><!--//details-->
+                                    @endif                        
+                                </div><!--//item-->
+                            @endif
+                        @endforeach
+                    </section><!--//section-->
+                @endif
+            
+            @if($default_section[3] != null)
+                <section class="section projects-section">
+                    <h2 class="section-title"><i class="fa fa-archive"></i>Projects</h2>
+                    @foreach($default_section[3] as $section)
+                            @if($section != null)
+                                <div class="item">
+                                    <span class="project-title"><a href="#hook">{{ $section['Project Name'][0] }}</a></span> - <span class="project-tagline">{{ $section['Project Description'][0] }}
+                                    </span>                    
+                                </div><!--//item-->
+                            @endif
+                        @endforeach
+                </section><!--//section-->
+            @endif
 
-	<div id="sidebar"> 
-
-		<div id="name">
-			<span id="name">
-				@if(!empty($default_section[1][0]['Name'][0]))
-					{{ $default_section[1][0]['Name'][0] }}
-				@endif
-			</span>
-			<span id="profession">Web Designer</span>
-			<span id="contact">Contact
-				<p id="email"><img src="{{ asset('img/email.png') }}" height="15vmin" width="15vmin"> @if($default_section[1][0]['Email'] != null)
-					@foreach($default_section[1][0]['Email'] as $email)
-						@if(!empty($email))
-					  <p>{{ $email }}</p>
-						@endif
-					@endforeach
-				@endif</p>
-				<p id="phone"><img src="{{ asset('img/phone.png') }}" height="15vmin" width="15vmin"> @if($default_section[6][0]['Contact No.'] != null)
-					@foreach($default_section[6][0]['Contact No.'] as $phone)
-						@if(!empty($phone))
-						<p>{{ $phone }}</p>
-						@endif
-					@endforeach
-				@endif</p>
-				<p id="website"><img src="{{ asset('img/website.png') }}" height="15vmin" width="15vmin">  forum.xda-developers.com</p>
-			</span>
-			<span id="brief">Objective
-				@if($default_section[5] != null)
-				<p id="aboutdesc">{{ $default_section[5][0]['Objective'][0] }}</p>
-				@endif
-			</span>
-		</div>
-
-	</div>
-
-
-<div id="description"> 
-	@if($default_section[7] != null)
-	<span id="experience">
-		<p id="title"><img src="{{ asset('img/work.png') }}" height="30vmin" width="30vmin" style="margin-right: 3vmin;">WORK EXPERIENCE</p>
-		<p id="text">@foreach($default_section[7] as $section)
-				@if($section != null)
-					<div class="row">
-					<div class="col-xs-6">
-						<ul>
-						<li>@if(!empty($section['Job Title'][0]))
-							<p>
-								{{ $section['Job Title'][0] }}
-							</p>
-						@endif
-						@if(!empty($section['Company'][0]))
-							<p>
-								{{ $section['Company'][0] }}
-							</p>
-						@endif
-						@if(!empty($section['Other Information'][0]))
-							<p>
-								{{ $section['Other Information'][0] }}
-							</p>
-						@endif
-					</div>
-					<div class="col-xs-6">
-						@if(!empty($section['Start Date'][0]) or $section['End Date'][0])
-							<p>
-								{{ $section['Start Date'][0] }} &#45;{{ $section['End Date'][0] }}
-							</p>
-						@endif
-					</div>
-				</div></li></ul>
-				@endif
-			@endforeach</p>
-	</span>
-		@endif
-		@if($default_section[2] != null)
-	<span id="education">
-		<p id="title"><img src="{{ asset('img/edu.png') }}" height="30vmin" width="30vmin" style="margin-right: 3vmin;">EDUCATION</p>
-		<p id="text">
-		@foreach($default_section[2] as $section)
-			@if($section != null)
-			<div  class="row">
-				<ul>
-
-				<div class="col-xs-6">
-						<li>@if(!empty($section['Course Name'][0]))
-					<p>
-					{{ $section['Course Name'][0] }}
-				</p>
-				@endif
-				@if(!empty($section['Institution'][0]))
-				<p>
-					{{ $section['Institution'][0] }}
-				</p>
-				@endif
-				</div>
-			<div class="col-xs-6">
-				@if(!empty($section['Passing Year'][0]))
-				<p>
-					Passing Year:
-					{{ $section['Passing Year'][0] }}
-				</p>
-				@endif
-				@if(!empty($section['Marks'][0]))
-				<p>
-					Marks: {{ $section['Marks'][0] }}
-				</p>
-				@endif
-					</li>
-			</div>
-
-	</ul>
-			@endif
-			@endforeach</p>
-	</span>
-		@endif
-	<span id="skills">
-		<p id="title"><img src="{{ asset('img/skill.png') }}" height="30vmin" width="30vmin" style="margin-right: 3vmin;">SKILLS</p>
-		<p id="text"><ul style="list-style:none;">
-			@foreach($default_section[4][0]['Skill'] as $skill)
-						<li>
-							<div class="sub_sections col-xs-6">
-								{{ $skill }}
-							</div>
-						</li>
-			@endforeach
-		  </ul></p>
-	</span>
-	@if($default_section[3] != null)
-	<span id="awards">
-		<p id="title"><img src="{{ asset('img/award.png') }}" height="30vmin" width="30vmin" style="margin-right: 3vmin;">PROJECTS</p>
-		<p id="text"><ul style="list-style:none;">
-			@foreach($default_section[3] as $section)
-				@if($section != null)
-					<li class="projects col-xs-6">
-						<div class="sub_sections">
-							@if(!empty($section['Project Name'][0]))
-								<div class="project_name">
-									{{ $section['Project Name'][0] }}
-								</div>
-								@if(!empty($section['Project Description'][0]))
-									<div class="project_description">
-										{{ $section['Project Description'][0] }}
-									</div>
-								@endif
-							@endif
-						</div>
-					</li>
-				@endif
-			@endforeach
-			</ul></p>
-	</span>
-		@endif
-</div>
-
-
-</div>
-</body>
-</html>
+            @if($default_section[4] != null)
+                @if(!empty($section['Skill'][0]))
+                    <section class="skills-section section">
+                    <h2 class="section-title"><i class="fa fa-rocket"></i>Skills &amp; Proficiency</h2>
+                    <div class="skillset">        
+                        @foreach($default_section[4][0]['Skill'] as $skill)
+                            <div class="item">
+                                <h3 class="level-title">{{ $skill }}</h3>                                                              
+                            </div><!--//item-->
+                        @endforeach
+                    </div>  
+                </section><!--//skills-section-->
+                @endif                
+             @endif
+           
+            
+        </div><!--//main-body-->
+        <div class="sidebar-wrapper col-xs-3">
+            <div class="profile-container">
+               <!--  <img class="profile" src="assets/images/profile.png" alt="" /> -->
+                @if(!empty($default_section[1][0]['Name'][0]))
+                    <h1 class="name">{{ $default_section[1][0]['Name'][0] }}</h1>
+                @endif
+                <!-- <h3 class="tagline">Full Stack Developer</h3> -->
+            </div><!--//profile-container-->
+            
+            <div class="contact-container container-block">
+                <ul class="list-unstyled contact-list">
+                    @if($default_section[1][0]['Email'] != null)
+                        @foreach($default_section[1][0]['Email'] as $email)
+                            @if(!empty($email))
+                           <li class="email"><i class="fa fa-envelope"></i>{{ $email }}</li>
+                            @endif
+                        @endforeach
+                    @endif
+                   @if($default_section[6][0]['Contact No.'] != null)
+                            @foreach($default_section[6][0]['Contact No.'] as $phone)
+                                @if(!empty($phone))
+                                  <li class="phone"><i class="fa fa-phone"></i><a href="#">{{ $phone }}</a></li>
+                                @endif
+                            @endforeach
+                       
+                    @endif
+                    
+                    @if($default_section[1][0]['Websites'] != null)
+                            @foreach($default_section[1][0]['Websites'] as $website)
+                                @if(!empty($website))
+                                    <li class="website"><i class="fa fa-globe"></i><a href="#" target="_blank">{{ $website }}</a></li>
+                                @endif
+                            @endforeach
+                    @endif
+                    @if(!empty($default_section[6][0]['Address'][0]))
+                        <li class="address"><i class="glyphicon glyphicon-map-marker"></i>{{ $default_section[6][0]['Address'][0] }}</li>
+                    @endif
+                    <!-- <li class="linkedin"><i class="fa fa-linkedin"></i><a href="#" target="_blank">linkedin.com/in/alandoe</a></li>
+                    <li class="github"><i class="fa fa-github"></i><a href="#" target="_blank">github.com/username</a></li> -->                    
+                </ul>
+            </div><!--//contact-container-->
+            @if($default_section[2] != null)
+                 <div class="education-container container-block">
+                    <h2 class="container-block-title">Education</h2>
+                    @foreach($default_section[2] as $section)
+                            @if($section != null)
+                                <div class="item">
+                                    @if(!empty($section['Course Name'][0]))
+                                        <h4 class="degree">{{ $section['Course Name'][0] }}</h4>
+                                    @endif
+                                    @if(!empty($section['Institution'][0]))
+                                        <h5 class="meta">{{ $section['Institution'][0] }}</h5>
+                                    @endif
+                                    @if(!empty($section['Passing Year'][0]))
+                                        <div class="time">{{ $section['Passing Year'][0] }}</div>
+                                    @endif
+                                    <!-- @if(!empty($section['Marks'][0]))
+                                        <td class="percent">{{ $section['Marks'][0] }}</td>
+                                    @endif -->
+                                </div><!--//item-->                           
+                            @endif
+                        @endforeach
+                </div><!--//education-container-->
+            @endif
+            @if(!empty($new_section))
+                @foreach($new_section as $section_id => $section)
+                    @if($section != null)
+                        <div class="interests-container container-block">
+                            <h2 class="container-block-title">{{ App\Section::find($section_id)->section_name }}</h2>
+                            <ul class="list-unstyled interests-list">
+                                @foreach($section[0][App\Section::find($section_id)->subsections->first()->subsection_name] as $subsection)
+                                    @if(!empty($subsection))
+                                        <li>
+                                            {{ $subsection }}
+                                        </li>
+                                    @endif
+                                @endforeach
+                            </ul>
+                        </div><!--//interests-->   
+                    @endif
+                @endforeach
+            @endif
+                     
+        </div><!--//sidebar-wrapper-->
+    </div>

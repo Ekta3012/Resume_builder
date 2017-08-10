@@ -1,224 +1,148 @@
-<div class="container pdf">
-		<div class="col-xs-10 content">
-			<h1 style="text-transform:uppercase;">
-				@if(!empty($default_section[1][0]['Name'][0]))
-								{{ $default_section[1][0]['Name'][0] }}
-				@endif
-			</h1>
-
-			<div class="container-fluid personal_details">
-				<div class="row">
-					<div class="col-xs-6">
-						<i class="fi-address-book"></i> &nbsp; &nbsp;
-						@if(!empty($default_section[6][0]['Address'][0]))
-
-						<p>{{ $default_section[6][0]['Address'][0] }}</p>
-
-						@endif
-					</div>
-					<div class="col-xs-6">
-						<i class="fa fa-envelope-o"></i>
+<div id="doc2" class="yui-t7">
+	<div id="inner">
+	
+		<div id="hd">
+			<div class="yui-gc  row">
+				<div class="yui-u first col-xs-9">
+					@if(!empty($default_section[1][0]['Name'][0]))
+	                    <h1>{{ $default_section[1][0]['Name'][0] }}</h1>
+	                @endif
+					
+				</div>
+				
+				<div class="yui-u col-xs-3">
+					<div class="contact-info">
 						@if($default_section[1][0]['Email'] != null)
-							@foreach($default_section[1][0]['Email'] as $email)
-								@if(!empty($email))
-								<p>{{ $email }}</p>
-								@endif
-							@endforeach
-						@endif
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-6">
-						<i class="fa fa-phone-square"></i>
+	                        @foreach($default_section[1][0]['Email'] as $email)
+	                            @if(!empty($email))
+	                           <h3><i class="fa fa-envelope"></i>{{ $email }}</a></h3>
+	                            @endif
+	                        @endforeach
+	                    @endif
 						@if($default_section[6][0]['Contact No.'] != null)
-							@foreach($default_section[6][0]['Contact No.'] as $phone)
-								@if(!empty($phone))
-								<p>{{ $phone }}</p>
-								@endif
-							@endforeach
-						@endif
-					</div>
-					<div class="col-xs-6">
-						@if($default_section[1][0]['Websites'] != null)
-							@foreach($default_section[1][0]['Websites'] as $website)
-								@if(!empty($website))
-								<p>{{ $website }}</p>
-								@endif
-							@endforeach
-						@endif
-					</div>
+                            @foreach($default_section[6][0]['Contact No.'] as $phone)
+                                @if(!empty($phone))
+                                  <h3><i class="fa fa-phone"></i>{{ $phone }}</h3>
+                                @endif
+                            @endforeach                       
+                    	@endif
+                    	@if($default_section[1][0]['Websites'] != null)
+	                            @foreach($default_section[1][0]['Websites'] as $website)
+	                                @if(!empty($website))
+	                                   <h3><i class="fa fa-globe"></i><{{ $website }}</h3>
+	                                @endif
+	                            @endforeach
+	                    @endif
+	                    @if(!empty($default_section[6][0]['Address'][0]))
+	                        <h3><i class="glyphicon glyphicon-map-marker"></i>{{ $default_section[6][0]['Address'][0] }}</h3>
+	                    @endif						
+					</div><!--// .contact-info -->
 				</div>
-			</div>
-			@if($default_section[4] != null)
-			<div class="row details">
-				<div class="col-xs-2">
-					<i class="fa fa-certificate"></i>
-				</div>
-				<div class="col-xs-10">
-					<h3>SKILLS</h3>
-						@if(!empty($section['Skill'][0]))
-							<ul>
-								@foreach($default_section[4][0]['Skill'] as $skill)
-											<li>
-												<div class="sub_sections col-xs-6">
-													{{ $skill }}
-												</div>
-											</li>
-								@endforeach
-							</ul>
-						@endif
-				</div>
-			</div>
-			@endif
-			@if($default_section[5] != null)
-			<div class="row details">
-				<div class="col-xs-2">
-					<i class="fa fa-user"></i>
-				</div>
-				<div class="col-xs-10">
-	            <h3>Objective</h3>
-	            <p >{{ $default_section[5][0]['Objective'][0] }}</p>
-				</div>
-			</div>
-				@endif
-				@if($default_section[2] != null)
-				<div class="row details">
-					<div class="col-xs-2">
-						<i class="fa fa-graduation-cap"></i>
-					</div>
-					<div class="col-xs-10">
-						<h3>EDUCATION</h3>
-								@foreach($default_section[2] as $section)
-								@if($section != null)
-								<div  class="row">
-									<ul>
+			</div><!--// .yui-gc -->
+		</div><!--// hd -->
 
-									<div class="col-xs-6">
-											<li>@if(!empty($section['Course Name'][0]))
-										<p>
-										{{ $section['Course Name'][0] }}
-									</p>
-									@endif
-									@if(!empty($section['Institution'][0]))
-									<p>
-										{{ $section['Institution'][0] }}
-									</p>
-									@endif
-									</div>
-								<div class="col-xs-6">
-									@if(!empty($section['Passing Year'][0]))
-									<p>
-										Passing Year:
-										{{ $section['Passing Year'][0] }}
-									</p>
-									@endif
-									@if(!empty($section['Marks'][0]))
-									<p>
-										Marks: {{ $section['Marks'][0] }}
-									</p>
-									@endif
-										</li>
+		<div id="bd">
+			<div id="yui-main">
+				<div class="yui-b">
+						@if($default_section[5] != null)
+	                    <div class="yui-gf">
+							<div class="yui-u first">
+								<h2>Objective</h2>
+							</div>
+							<div class="yui-u">
+								<p class="enlarge">
+									{{ $default_section[5][0]['Objective'][0] }}
+								</p>
+							</div>
+						</div><!--// .yui-gf -->
+	                @endif			
+					
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Skills</h2>
+						</div>
+						<div class="yui-u">
+
+								<div class="talent">
+									<h2>Web Design</h2>
+									<p>Assertively exploit wireless initiatives rather than synergistic core competencies.	</p>
 								</div>
 
-						</ul>
-								@endif
-								@endforeach
-					</div>
-				</div>
-			</div>
-				@endif
-				@if($default_section[7] != null)
-						<div class="row details">
-							<div class="col-xs-2">
-								<i class="fa fa-area-chart"></i>
-							</div>
-							<div class="col-xs-10">
-								<h3>WORK EXPERIENCE</h3>
-								@foreach($default_section[7] as $section)
-									@if($section != null)
-										<div class="row">
-										<div class="col-xs-6">
-											<ul>
-											<li>@if(!empty($section['Job Title'][0]))
-												<p>
-													{{ $section['Job Title'][0] }}
-												</p>
-											@endif
-											@if(!empty($section['Company'][0]))
-												<p>
-													{{ $section['Company'][0] }}
-												</p>
-											@endif
-											@if(!empty($section))
-												<p>
-													{{ $section['Other Information'][0] }}
-												</p>
-											@endif
-										</div>
-										<div class="col-xs-6">
-											@if(!empty($section['Start Date'][0]) or $section['End Date'][0])
-												<p>
-													{{ $section['Start Date'][0] }} &#45;{{ $section['End Date'][0] }}
-												</p>
-											@endif
-										</div>
-									</div></li></ul>
-									@endif
-								@endforeach
-							</div>
-						</div>
-					@endif
-					@if($default_section[3] != null)
-						<div class="row details">
-							<div class="row details">
-								<div class="col-xs-2">
-									<i class="fa fa-area-chart"></i>
+								<div class="talent">
+									<h2>Interface Design</h2>
+									<p>Credibly streamline mission-critical value with multifunctional functionalities.	 </p>
 								</div>
-								<div class="col-xs-10">
-										<h3>Projects</h3>
-										@foreach($default_section[3] as $section)
-											@if($section != null)
-													<ul>
-														<li class="projects">
-															<div class="sub_sections">
-																<div class="project_name">
-																	{{ $section['Project Name'][0] }}
-																</div>
-																<div class="project_description">
 
-																</div>
-															</div>
-														</li>
-													</ul>
-											@endif
-										@endforeach
-									</div>
+								<div class="talent">
+									<h2>Project Direction</h2>
+									<p>Proven ability to lead and manage a wide variety of design and development projects in team and independent situations.</p>
+								</div>
 						</div>
-					</div>
-						@endif
-						@if(!empty($new_section))
-							<div class="row details">
-								@foreach($new_section as $section_id => $section)
-									@if($section != null)
-									<div class="sections ">
-											{{ App\Section::find($section_id)->section_name }}
-									</div>
-										<ul>
-										<li>
-											<div class="sub_sections">
-												@foreach($section[0][App\Section::find($section_id)->subsections->first()->subsection_name] as $subsection)
-													@if(!empty($subsection))
-														<div class="new_subsection_content">
-															{{ $subsection }}
-														</div>
-													@endif
-												@endforeach
-											</div>
-										</li>
-									</ul>
-									@endif
-								@endforeach
-							</div>
-						@endif
+					</div><!--// .yui-gf -->
 
-	</div>
+
+					<div class="yui-gf">
+	
+						<div class="yui-u first">
+							<h2>Experience</h2>
+						</div><!--// .yui-u -->
+
+						<div class="yui-u">
+
+							<div class="job">
+								<h2>Facebook</h2>
+								<h3>Senior Interface Designer</h3>
+								<h4>2005-2007</h4>
+								<p>Intrinsicly enable optimal core competencies through corporate relationships. Phosfluorescently implement worldwide vortals and client-focused imperatives. Conveniently initiate virtual paradigms and top-line convergence. </p>
+							</div>
+
+							<div class="job">
+								<h2>Apple Inc.</h2>
+								<h3>Senior Interface Designer</h3>
+								<h4>2005-2007</h4>
+								<p>Progressively reconceptualize multifunctional "outside the box" thinking through inexpensive methods of empowerment. Compellingly morph extensive niche markets with mission-critical ideas. Phosfluorescently deliver bricks-and-clicks strategic theme areas rather than scalable benefits. </p>
+							</div>
+
+							<div class="job">
+								<h2>Microsoft</h2>
+								<h3>Principal and Creative Lead</h3>
+								<h4>2004-2005</h4>
+								<p>Intrinsicly transform flexible manufactured products without excellent intellectual capital. Energistically evisculate orthogonal architectures through covalent action items. Assertively incentivize sticky platforms without synergistic materials. </p>
+							</div>
+
+
+							<div class="job last">
+								<h2>International Business Machines (IBM)</h2>
+								<h3>Lead Web Designer</h3>
+								<h4>2001-2004</h4>
+								<p>Globally re-engineer cross-media schemas through viral methods of empowerment. Proactively grow long-term high-impact human capital and highly efficient innovation. Intrinsicly iterate excellent e-tailers with timely e-markets.</p>
+							</div>
+
+						</div><!--// .yui-u -->
+					</div><!--// .yui-gf -->
+
+
+					<div class="yui-gf last">
+						<div class="yui-u first">
+							<h2>Education</h2>
+						</div>
+						<div class="yui-u">
+							<h2>Indiana University - Bloomington, Indiana</h2>
+							<h3>Dual Major, Economics and English &mdash; <strong>4.0 GPA</strong> </h3>
+						</div>
+					</div><!--// .yui-gf -->
+
+
+				</div><!--// .yui-b -->
+			</div><!--// yui-main -->
+		</div><!--// bd -->
+
+		<!-- <div id="ft">
+			<p>Jonathan Doe &mdash; <a href="mailto:name@yourdomain.com">name@yourdomain.com</a> &mdash; (313) - 867-5309</p>
+		</div> --><!--// footer -->
+
+	</div><!-- // inner -->
+
+
+</div><!--// doc -->
