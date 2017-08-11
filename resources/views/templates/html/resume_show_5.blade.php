@@ -3,38 +3,37 @@
 	
 		<div id="hd">
 			<div class="yui-gc  row">
-				<div class="yui-u first col-xs-9">
+				<div class="yui-u first col-xs-6">
 					@if(!empty($default_section[1][0]['Name'][0]))
 	                    <h1>{{ $default_section[1][0]['Name'][0] }}</h1>
-	                @endif
-					
+	                @endif					
 				</div>
 				
-				<div class="yui-u col-xs-3">
+				<div class="yui-u col-xs-6">
 					<div class="contact-info">
 						@if($default_section[1][0]['Email'] != null)
 	                        @foreach($default_section[1][0]['Email'] as $email)
 	                            @if(!empty($email))
-	                           <h3><i class="fa fa-envelope"></i>{{ $email }}</a></h3>
+	                           <h4><i class="fa fa-envelope"></i>&nbsp; &nbsp;{{ $email }}</a></h4>
 	                            @endif
 	                        @endforeach
 	                    @endif
 						@if($default_section[6][0]['Contact No.'] != null)
                             @foreach($default_section[6][0]['Contact No.'] as $phone)
                                 @if(!empty($phone))
-                                  <h3><i class="fa fa-phone"></i>{{ $phone }}</h3>
+                                  <h4><i class="fa fa-phone"></i>&nbsp; &nbsp;{{ $phone }}</h4>
                                 @endif
                             @endforeach                       
                     	@endif
                     	@if($default_section[1][0]['Websites'] != null)
-	                            @foreach($default_section[1][0]['Websites'] as $website)
-	                                @if(!empty($website))
-	                                   <h3><i class="fa fa-globe"></i><{{ $website }}</h3>
-	                                @endif
-	                            @endforeach
+                            @foreach($default_section[1][0]['Websites'] as $website)
+                                @if(!empty($website))
+                                   <h4><i class="fa fa-globe"></i>&nbsp; &nbsp;<{{ $website }}</h4>
+                                @endif
+                            @endforeach
 	                    @endif
 	                    @if(!empty($default_section[6][0]['Address'][0]))
-	                        <h3><i class="glyphicon glyphicon-map-marker"></i>{{ $default_section[6][0]['Address'][0] }}</h3>
+	                        <h4><i class="glyphicon glyphicon-map-marker"></i>&nbsp; &nbsp;{{ $default_section[6][0]['Address'][0] }}</h4>
 	                    @endif						
 					</div><!--// .contact-info -->
 				</div>
@@ -56,82 +55,100 @@
 							</div>
 						</div><!--// .yui-gf -->
 	                @endif			
+					@if($default_section[4] != null)
+		                @if(!empty($section['Skill'][0]))
+		                    <div class="yui-gf">
+								<div class="yui-u first">
+									<h2>Skills</h2>
+								</div>
+								<div class="yui-u">
+									@foreach($default_section[4][0]['Skill'] as $skill)
+			                            <div class="talent">
+											<h2>{{ $skill }}</h2>									
+										</div>
+			                        @endforeach
+								</div>
+							</div><!--// .yui-gf -->
+		                @endif                
+		             @endif
+		             
+					@if($default_section[7] != null)
+                    	<div class="yui-gf">	
+							<div class="yui-u first">
+								<h2>Experience</h2>
+							</div><!--// .yui-u -->
+
+							<div class="yui-u">
+								 @foreach($default_section[7] as $section)
+		                            @if($section != null)
+		                                <div class="job">
+											@if(!empty($section['Company'][0]))
+				                               <h2>{{ $section['Company'][0] }}</h2>
+				                            @endif   
+											@if(!empty($section['Job Title'][0]))
+				                                <h3>{{ $section['Job Title'][0] }}</h3>
+				                            @endif   
+											 @if(!empty($section['Start Date'][0]) or $section['End Date'][0])
+				                                <h4>{{ $section['Start Date'][0] }} &#45;{{ $section['End Date'][0] }}</h4>
+				                            @endif 
+											@if(!empty($section))                                    
+				                                <p>{{ $section['Other Information'][0] }}</p>              
+				                            @endif  								
+										</div>
+		                            @endif
+		                        @endforeach
+							</div><!--// .yui-u -->
+						</div><!--// .yui-gf -->
+                	@endif
+                	 @if($default_section[3] != null)
+		                <div class="yui-gf" >
+		                    <div class="yui-u first"><h2>Projects</h2></div>
+		                    <div class="yui-u">
+		                    @foreach($default_section[3] as $section)
+		                            @if($section != null)
+		                                <div class="project">
+		                                    <h2>{{ $section['Project Name'][0] }}</h2>
+		                                   <h3>{{ $section['Project Description'][0] }}
+		                                    </h3>                    
+		                                </div><!--//item-->
+		                            @endif
+		                        @endforeach
+		                        </div>
+		                </div><!--//section-->
+		            @endif
+                	@if($default_section[2] != null)
+		                 <div class="yui-gf last">
+							<div class="yui-u first">
+								<h2>Education</h2>
+							</div>
+							@foreach($default_section[2] as $section)
+			                            @if($section != null)
+			                               <div class="yui-u">
+												 @if(!empty($section['Institution'][0]))
+					                                <h2>{{ $section['Institution'][0] }}</h2>
+					                            @endif
+												
+												@if(!empty($section['Course Name'][0]))
+					                                <h2>{{ $section['Course Name'][0] }}</h2>
+					                            @endif
+												<h3>
+													@if(!empty($section['Passing Year'][0]))
+				                                        {{ $section['Passing Year'][0] }}
+				                                    @endif ,
+				                                    <strong>
+				                                    @if(!empty($section['Marks'][0]))
+				                                        {{ $section['Marks'][0] }}
+				                                    @endif </strong> </h3>
+											</div>                           
+			                            @endif
+			                        @endforeach
+						</div><!--// .yui-gf -->
+		            @endif
+
 					
 
-					<div class="yui-gf">
-						<div class="yui-u first">
-							<h2>Skills</h2>
-						</div>
-						<div class="yui-u">
 
-								<div class="talent">
-									<h2>Web Design</h2>
-									<p>Assertively exploit wireless initiatives rather than synergistic core competencies.	</p>
-								</div>
-
-								<div class="talent">
-									<h2>Interface Design</h2>
-									<p>Credibly streamline mission-critical value with multifunctional functionalities.	 </p>
-								</div>
-
-								<div class="talent">
-									<h2>Project Direction</h2>
-									<p>Proven ability to lead and manage a wide variety of design and development projects in team and independent situations.</p>
-								</div>
-						</div>
-					</div><!--// .yui-gf -->
-
-
-					<div class="yui-gf">
-	
-						<div class="yui-u first">
-							<h2>Experience</h2>
-						</div><!--// .yui-u -->
-
-						<div class="yui-u">
-
-							<div class="job">
-								<h2>Facebook</h2>
-								<h3>Senior Interface Designer</h3>
-								<h4>2005-2007</h4>
-								<p>Intrinsicly enable optimal core competencies through corporate relationships. Phosfluorescently implement worldwide vortals and client-focused imperatives. Conveniently initiate virtual paradigms and top-line convergence. </p>
-							</div>
-
-							<div class="job">
-								<h2>Apple Inc.</h2>
-								<h3>Senior Interface Designer</h3>
-								<h4>2005-2007</h4>
-								<p>Progressively reconceptualize multifunctional "outside the box" thinking through inexpensive methods of empowerment. Compellingly morph extensive niche markets with mission-critical ideas. Phosfluorescently deliver bricks-and-clicks strategic theme areas rather than scalable benefits. </p>
-							</div>
-
-							<div class="job">
-								<h2>Microsoft</h2>
-								<h3>Principal and Creative Lead</h3>
-								<h4>2004-2005</h4>
-								<p>Intrinsicly transform flexible manufactured products without excellent intellectual capital. Energistically evisculate orthogonal architectures through covalent action items. Assertively incentivize sticky platforms without synergistic materials. </p>
-							</div>
-
-
-							<div class="job last">
-								<h2>International Business Machines (IBM)</h2>
-								<h3>Lead Web Designer</h3>
-								<h4>2001-2004</h4>
-								<p>Globally re-engineer cross-media schemas through viral methods of empowerment. Proactively grow long-term high-impact human capital and highly efficient innovation. Intrinsicly iterate excellent e-tailers with timely e-markets.</p>
-							</div>
-
-						</div><!--// .yui-u -->
-					</div><!--// .yui-gf -->
-
-
-					<div class="yui-gf last">
-						<div class="yui-u first">
-							<h2>Education</h2>
-						</div>
-						<div class="yui-u">
-							<h2>Indiana University - Bloomington, Indiana</h2>
-							<h3>Dual Major, Economics and English &mdash; <strong>4.0 GPA</strong> </h3>
-						</div>
-					</div><!--// .yui-gf -->
+					
 
 
 				</div><!--// .yui-b -->

@@ -188,7 +188,7 @@
 					<li class="thumbnail resume_templates" value="1"><img src="{{ asset('img/template1.png') }}" class="img-responsive"></li>
 					<li class="thumbnail resume_templates" value="2"><img src="{{ asset('img/template2.png') }}" class="img-responsive"></li>
 					<li class="thumbnail resume_templates" value="3"><img src="{{ asset('img/template3.jpg') }}" class="img-responsive"></li>
-					<li class="thumbnail resume_templates" value="4"><img src="{{ asset('img/template4.jpg') }}" class="img-responsive"></li>
+					<li class="thumbnail resume_templates" value="4"><img src="{{ asset('img/template4.png') }}" class="img-responsive"></li>
 					<li class="thumbnail resume_templates" value="5"><img src="{{ asset('img/template5.png') }}" class="img-responsive"></li>
 				</ul>
 			</div>
