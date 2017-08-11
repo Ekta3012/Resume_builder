@@ -37,13 +37,13 @@
 			</div>
 			<div class="col-lg-7 col-xs-10 side_right col-lg-offset-3">
 				<div class="row" style="border-bottom: 1px solid #dcdcdc; padding:15px; background-color: #fff;">
-					<div class="col-lg-7">
+					<div class="col-lg-9">
 						<span class="fa fa-television" style="border: 2px solid #0288D1; border-radius: 80px; padding :10px;"></span> &nbsp; &nbsp;<a href={{ route('user.dashboard') }}>Dashboard</a>
 					</div>
-					<div class="col-lg-5">
+					<div class="col-lg-3">
 						<ul style="list-style: none;">
 							<li style="display: inline;">
-								<a class="btn resume_op" id="resume_download" token='{{ csrf_token() }}' data-id="{{ $resume->id }}" data-op="download">Download</a>
+								<!-- <a class="btn resume_op" id="resume_download" token='{{ csrf_token() }}' data-id="{{ $resume->id }}" data-op="download">Download</a> -->
 								<a class="btn resume_op" id="resume_preview" token='{{ csrf_token() }}' data-id="{{ $resume->id }}" data-op="show">Preview</a>
 							</li>
 						</ul>
@@ -192,7 +192,7 @@
 					<li class="thumbnail resume_templates" value="1"><img src="{{ asset('img/template1.png') }}" class="img-responsive"></li>
 					<li class="thumbnail resume_templates" value="2"><img src="{{ asset('img/template2.png') }}" class="img-responsive"></li>
 					<li class="thumbnail resume_templates" value="3"><img src="{{ asset('img/template3.jpg') }}" class="img-responsive"></li>
-					<li class="thumbnail resume_templates" value="4"><img src="{{ asset('img/template4.jpg') }}" class="img-responsive"></li>
+					<li class="thumbnail resume_templates" value="4"><img src="{{ asset('img/template4.png') }}" class="img-responsive"></li>
 					<li class="thumbnail resume_templates" value="5"><img src="{{ asset('img/template5.png') }}" class="img-responsive"></li>
 				</ul>
 			</div>
